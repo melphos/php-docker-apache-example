@@ -1,7 +1,8 @@
 FROM php:7.0-apache
 
 RUN apt-get update && \
-    apt-get install -y php7.0-mysql && \
+    docker-php-ext-configure mysql && \
+    docker-php-ext-install && \
     apt-get clean
 
 COPY myapp /var/www/html/
